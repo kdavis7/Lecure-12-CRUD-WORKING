@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Newbie's Coffee</title>
+    <link rel="stylesheet" href="/css/materialize.min.css">
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="/css/app.css">
+    <script type="text/javascript" src="/js/materialize.min.js"></script>
+    <link rel="manifest" href="/manifest.json">
+    <link rel="icon" type="image/x-icon" href="/img/icons/favicon.png">
+</head>
+
+<body class="black-text">
+    <nav class="z-depth-2">
+        <div class="nav-wrapper container">
+            <a href="/">Newbie's<span> Coffee</a>
+            <span class="left brown-text text-darken-2">
+                <i class="left hide-on-large-only material-icons sidenav-trigger" data-target="side-menu">menu</i>
+            </span>
+                <ul class="right hide-on-med-and-down brown-text text-darken-2">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/mypages/about.html">About</a></li>
+                    <li><a href="/mypages/coffeeterms.html">Coffee Terms</a></li>
+          
+                  </ul>
+            
+        </div>
+    </nav>
+
+    <ul id="side-menu" class="sidenav side-menu">
+        <li><a class="subheader">NEWBIE'S COFFEE</a></li>
+        <div class="divider"></div>
+        <li><a href="/" class="waves-effect">Home</a></li>
+        <div class="divider"></div>
+        <li><a href="/mypages/about.html" class="waves-effect">About</a></li>
+        
+        
+            <div class="divider"></div>
+        
+        <li><a href="#" class="waves-effect"><i class="brown-text material-icons">coffee</i>Coffee Terms</a></li>
+        
+    </ul>
+    
+    <!-- Table -->
+    <div class="container">
+        <section>
+          <i class="black-text material-icons">search<input type="text" id="userInput" onkeyup="tableFilter()" placeholder="Search for terms.."></i>
+  
+  
+        <table id="coffeeTable" class="center-align col s12 m6">
+          <thead>
+            <tr>
+                <th class ="brown center-align">Coffee Name</th>
+                <th class="brown lighten-3 center-align">Definition</th>
+            </tr>
+          </thead>
+  
+          <tbody class="black-text">
+            <tr>
+              <td class="center-align">Iced Coffee</td>
+              <td>Hot coffee is brewed over ice to make Iced Coffee.</td>
+              
+            </tr>
+            <tr>
+              <td class="center-align">Hot Coffee</td>
+              <td>Coffee beans are ground, placed in a filter, and brewed in a coffee maker to make Hot Coffee. </td>
+              
+            </tr>
+            <tr>
+              <td class="center-align">Americano</td>
+              <td>An espresso-based drink that is made with espresso shots and hot water.</td>
+              
+            </tr>
+            <tr>
+              <td class="center-align">Blended Coffees</td>
+              <td >Blended drinks made with coffee, typically they include other syrup flavors to go with the coffee and look like a milkshake. </td>
+            </tr>
+            <tr>
+              <td class="center-align">Cafe Misto</td>
+              <td >This drink is made with half a cup of hot coffee and half a cup of steamed cream. </td>
+            </tr>
+            <tr>
+              <td class="center-align">Cappuccino</td>
+              <td >This espresso-based beverage is known for it's frothy consistency and has more foam as the steamed cream is frothed longer to achieve the foamy consistency. </td>
+            </tr>
+            <tr>
+              <td class="center-align">Dalgona Coffee</td>
+              <td > Also known as whipped coffee. This is made with hot water, sugar, and instant coffee. The goal is to stir the coffee until it is a whipped consistency and put it on your favorite drink. </td>
+            </tr>
+            <tr>
+              <td class="center-align">Vietnamese Coffee</td>
+              <td >Made with Vietnamese Coffee beans. It is brewed hot coffee that uses the drip brewing method and is mixed with sweetened condensed milk. </td>
+              
+            </tr>
+          </tbody>
+        </table>
+      </section>
+  
+  
+        
+      </div>
+    <!---End of Table-->
+   
+    
+
+    <script src="/js/ui.js"></script>
+
+</body>
+
+</html>
