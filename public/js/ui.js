@@ -83,7 +83,7 @@ const renderRecipe =(data,id)=>{
 
 const removeRecipe = (id) => {
   const recipe = document.querySelector(`.recipe[data-id =${id}]`);
-  // console.log(task);
+  // console.log(recipe);
   recipe.remove();
   
 };
