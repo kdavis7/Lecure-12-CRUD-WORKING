@@ -5,7 +5,7 @@ if ("serviceWorker" in navigator) {
   window.addEventListener("load", () => {
     //Registering the Service Worker.
     navigator.serviceWorker
-      .register("/sw.js")
+      .register("/public/sw.js")
       .then((reg) => {
         //display a Registration message once the Service Worker is registered.
         console.log(`Service Worker Registration (Scope: ${reg.scope})`);

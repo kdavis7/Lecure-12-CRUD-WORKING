@@ -2,7 +2,7 @@
     "name": "Newbie's Coffee",
     "short_name": "NC",
     "description": "Read and Manage Coffee Recipes",
-    "start_url": "/index.html",
+    "start_url": "/public/index.html",
     "scope": ".",
     "display": "standalone",
     "orientation": "any",

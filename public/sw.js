@@ -6,14 +6,14 @@ const dynamicCache = "Dynamic-cache-v10";
 //Assignment of asset variables. These Will be added to the static cache. These are the static files. 
 const assets = [
   "/",
-  "/index.html",
-  "/mypages/fallback.html",
-  "/js/app.js",
-  "/js/ui.js",
-  "/js/materialize.min.js",
-  "/css/materialize.min.css",
-  "/css/app.css",
-  "/coffee.jpg",
+  "/public/index.html",
+  "/public/mypages/fallback.html",
+  "/public/js/app.js",
+  "/public/js/ui.js",
+  "/public/js/materialize.min.js",
+  "/public/css/materialize.min.css",
+  "/public/css/app.css",
+  "/public/coffee.jpg",
   "https://fonts.googleapis.com/icon?family=Material+Icons",
 ];
 
@@ -83,6 +83,6 @@ self.addEventListener("fetch", function (event) {
       })
       //If a match is not found in cache then default to Offline page to redirect user.
       //A user will see the Fallback page if they had not visited it prior or the page is not within the cache while they are offline. 
-      .catch(() => caches.match("/mypages/fallback.html"))
+      .catch(() => caches.match("/public/mypages/fallback.html"))
   );
 });
