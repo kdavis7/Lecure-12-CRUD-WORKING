@@ -1,29 +1,5 @@
-//setup materialize components
-document.addEventListener("DOMContentLoaded",function(){
-  var modals =document.querySelectorAll(".modal");
-  M.Modal.init(modals);
-
-  var items =document.querySelectorAll(".collapsible");
-  M.Collapsible.init(items);
-});
-
-
-
 const recipes = document.querySelector(".recipes");
-const loggedOutLinks=document.querySelectorAll(".logged-out");
-const loggedInLinks=document.querySelectorAll(".logged-in");
 
-const setupUI =(user)=>{
-  if (user) {
-    //toggle UI elements
-    loggedOutLinks.forEach((item)=> (item.style.display="none"));
-    loggedInLinks.forEach((item)=> (item.style.display="block"));
-
-  }else {
-    loggedOutLinks.forEach((item)=> (item.style.display="block"));
-    loggedInLinks.forEach((item)=> (item.style.display="none"));
-  }
-};
 document.addEventListener("DOMContentLoaded", function () {
     //Nav Menu
     const menus = document.querySelectorAll(".side-menu");
@@ -81,35 +57,6 @@ function tableFilter() {
     }
   }
 
-  //populate data
-const setupRecipes=(data)=>{
-  let html ="";
-  data.forEach((doc)=>{
-    const recipe = doc.data();
-    const li=`
-    <div class = "all mine" data-id ="${recipe.id}">
-    <div class = "recipe-img" >
-        <img src = "coffee.jpg" alt = "a cup of coffee.">
-        <span class = "category-name">Mine</span>
-    </div>
-
-    <div class = "recipe-content">
-        <a href="#" class= "right btn-floating grey"><i class="material-icons" data-id ="${recipe.id}">delete_outline</i></a>
-        
-        <h2>${recipe.title}<a href="#" class="right favorite-btn btn-floating red pulse">
-            <i class="material-icons">favorite</i></a></h2>
-        <p>${recipe.description}</p>
-    </div>
-
-    
-        
-</div>
-`;
-html+=li;
-  });
-
-  recipes.innerHTML=html;
-};
 
 const renderRecipe =(data,id)=>{
   const html = `
@@ -135,9 +82,8 @@ const renderRecipe =(data,id)=>{
 };
 
 const removeRecipe = (id) => {
-  const recipe = document.querySelector(`.recipe[data-id ='${id}']`);
+  const recipe = document.querySelector(`.recipe[data-id =${id}]`);
   // console.log(recipe);
   recipe.remove();
   
 };
-

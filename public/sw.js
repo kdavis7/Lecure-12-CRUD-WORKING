@@ -1,7 +1,7 @@
 
 //Assignment of staticCache and dynamic Cache. 
-const staticCache = "Static-cache-v16";
-const dynamicCache = "Dynamic-cache-v13";
+const staticCache = "Static-cache-v9";
+const dynamicCache = "Dynamic-cache-v10";
 
 //Assignment of asset variables. These Will be added to the static cache. These are the static files. 
 const assets = [
@@ -64,7 +64,6 @@ self.addEventListener("fetch", function (event) {
 
 
   //Pulls the requested resource from the network.
-  if(event.request.url.indexOf("firestore.googleapis.com")===-1){
   event.respondWith(
     caches
       .match(event.request)
@@ -76,7 +75,7 @@ self.addEventListener("fetch", function (event) {
               cache.put(event.request.url, fetchRes.clone());
               //Restricts dynamicCache, deletes old caches that exceeds the limit. 
               //Due to the large amount of recipe pages, I opted to increase the limit from 3 to 8. 
-              limitCacheSize(dynamicCache, 15);
+              limitCacheSize(dynamicCache, 3);
               return fetchRes;
             });
           })
@@ -86,5 +85,4 @@ self.addEventListener("fetch", function (event) {
       //A user will see the Fallback page if they had not visited it prior or the page is not within the cache while they are offline. 
       .catch(() => caches.match("/public/mypages/fallback.html"))
   );
-}
 });

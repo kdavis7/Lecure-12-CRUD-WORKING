@@ -26,18 +26,6 @@
                 <ul class="right hide-on-med-and-down brown-text text-darken-2">
                     <li><a href="/public/index.html">Home</a></li>
                     <li><a href= "/public/mypages/about.html">About</a></li>
-                    <li class ="logged-in">
-                        <a href="#" class ="waves-effect modal-trigger" data-target= "modal-account">Account</a>
-                    </li>
-                    <li class="logged-in">
-                        <a href ="#" class="waves-effect" id="logout">Logout</a>
-                    </li>
-                    <li class ="logged-out">
-                        <a href="#" class="waves-effect modal-trigger" data-target="modal-login">Login</a>
-                    </li>
-                    <li class ="logged out">
-                        <a href="#" class="waves-effect modal-trigger" data-target="modal-signup">Sign up</a>
-                    </li>
                     <li><a href="/public/mypages/coffeeterms.html">Coffee Terms</a></li>
                    
                 </ul>
@@ -49,27 +37,12 @@
         <li><a class="subheader">NEWBIE'S COFFEE</a></li>
         <li><a href="/public/index.html" class="waves-effect">Home</a></li>
         <li><a href= "/public/mypages/about.html" class="waves-effect">About</a></li>
-    </li>
-    <li class ="logged-in">
-        <a href="#" class ="waves-effect modal-trigger" data-target= "modal-account">Account</a>
-    </li>
-    <li class="logged-in">
-        <a href ="#" class="waves-effect" id="logout">Logout</a>
-    </li>
-    <li class ="logged-out">
-        <a href="#" class="waves-effect modal-trigger" data-target="modal-login">Login</a>
-    </li>
-    <li class ="logged out">
-        <a href="#" class="waves-effect modal-trigger" data-target="modal-signup">Sign up</a>
-    </li>
-    </span>
         <li>
             <div class="divider"></div>
         </li>
         <li><a href="/public/mypages/coffeeterms.html" class="waves-effect"><i class="brown-text material-icons">coffee</i>Coffee Terms</a>
 
-        
-    
+        </li>
     </ul>
 <!--Category Buttons-->
 <div class = "main-container">
@@ -303,59 +276,11 @@
             <button class="btn-small">Add New Recipe</button>
         </div>
     </form>
-    <!---SIGN UP MODAL----->
-    <div id="modal-signup" class="modal">
-        <div class = "modal-content">
-            <h4>Sign UP</h4>
-            <form id ="signup-form">
-                <div class="input-field">
-                     <input type="email" id ="signup-email" required>
-                     <label for="signup-email">Email Address</label>
-                </div>
-                <div class ="input-field">
-                    <input type="password" id ="signup-password" required>
-                     <label for="signup-password">Choose password</label>
-                </div>
-                <button class="btn yellow darken-2 z-depth-0">Sign Up</button>
-            </form>
-        </div>
-    </div>
-    <!---LOGIN MODAL----->
-    <div id="modal-login" class="modal">
-        <div class ="modal-content">
-          <h4>Login</h4><br />
-          <form id="login-form">
-                <div class="input-field">
-                    <input type="email" id="login-email" required />
-                    <label for="login-email">Email Address </label>
-                </div>
-                <div class="input-field">
-                    <input type="password" id="login-password" required />
-                    <label for="login-password">Your password </label>
-                </div>
-                <button class="btn yellow darken-2 z-depth-0">Sign Up</button>
-          </form>
-            
-
-
-
-        </div>
-    </div>
-   <!---ACCOUNT MODAL----->
-   <div id="modal-account" class="modal">
-    <div class="modal-content center-align">
-        <h4>Account details</h4><br />
-        <div class="account=details"></div>
-    </div>
-   </div>
-
-
 </div>
 
     <script src="/public/js/ui.js"></script>
     <script src="/public/js/app.js"></script>
     <script type="module" src="/public/js/db.js"></script>
-    <script type ="module" src="/public/js/auth.js"></script>
 </body>
 
 </html>
