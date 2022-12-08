@@ -9,7 +9,11 @@ import{
   addDoc,
   deleteDoc,
   doc,
+  enableIndexedDbPersistence,
 } from "https://www.gstatic.com/firebasejs/9.13.0/firebase-firestore.js";
+import{getAuth, 
+   onAuthStateChanged
+  }from "https://www.gstatic.com/firebasejs/9.13.0/firebase-auth.js";
   // TODO: Add SDKs for Firebase products that you want to use
   // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -26,6 +30,7 @@ import{
   // Initialize Firebase
   const app = initializeApp(firebaseConfig);
   const db = getFirestore(app);
+  const auth= getAuth(app);
 
   async function getRecipes(db){
     const recipeCol =collection(db,"recipes");
@@ -33,6 +38,20 @@ import{
     const recipeList = recipeSnapshot.docs.map((doc)=> doc);
     return recipeList;
   }
+
+  enableIndexedDbPersistence(db).catch((err) => {
+      if (err.code == 'failed-precondition') {
+          // Multiple tabs open, persistence can only be enabled
+          // in one tab at a a time.
+          // ...
+          console.log("Persistence failed.")
+      } else if (err.code == 'unimplemented') {
+          // The current browser does not support all of the
+          // features required to enable persistence
+          // ...
+          console.log("Persistence is not valid.")
+      }
+  });
 
   const unsub =onSnapshot(collection(db,"recipes"), (doc) => {
     //console.log(doc.docChanges());
@@ -50,17 +69,17 @@ import{
   });
 
   //add new task
-const form = document.querySelector("form");
-form.addEventListener("submit", (event) => {
-  event.preventDefault();
+//const form = document.querySelector("form");
+//form.addEventListener("submit", (event) => {
+  //event.preventDefault();
 
-  addDoc(collection(db, "recipes"), {
-    title: form.title.value,
-    description: form.description.value,
-  }).catch((error) => console.log(error));
-  form.title.value = "";
-  form.description.value = "";
-});
+ // addDoc(collection(db, "recipes"), {
+   // title: form.title.value,
+   // description: form.description.value,
+ // }).catch((error) => console.log(error));
+ // form.title.value = "";
+ /// form.description.value = "";
+//});
 
 //delete
 const recipeContainer = document.querySelector(".recipes");
@@ -70,3 +89,30 @@ recipeContainer.addEventListener("click", (event) => {
     deleteDoc(doc(db, "recipes", id));
   }
 });
+
+
+  //listen for auth status changes
+  onAuthStateChanged(auth,(user)=>{
+    if (user){
+        console.log("User logged in:", user.email)
+        getRecipes(db).then((snapshot)=>{
+            setupRecipes(snapshot);
+        });
+        setupUI(user);
+        const form=document.querySelector("form");
+        form.addEventListener('submit', (event)=>{
+            event.preventDefault();
+
+            addDoc(collection(db, "recipes"), {
+            title: form.title.value,
+            description: form.description.value,
+        }).catch((error) => console.log(error));
+        form.title.value = "";
+        form.description.value = "";
+    });
+    }else{
+        console.log("User logged out");
+        setupUI();
+        setupRecipes([]);
+    }
+  });
