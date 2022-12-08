@@ -64,6 +64,7 @@ self.addEventListener("fetch", function (event) {
 
 
   //Pulls the requested resource from the network.
+  if(event.request.url.indexOf("firestore.googleapis.com")===-1){
   event.respondWith(
     caches
       .match(event.request)
@@ -85,4 +86,5 @@ self.addEventListener("fetch", function (event) {
       //A user will see the Fallback page if they had not visited it prior or the page is not within the cache while they are offline. 
       .catch(() => caches.match("/public/mypages/fallback.html"))
   );
+}
 });

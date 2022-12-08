@@ -9,6 +9,7 @@ import{
   addDoc,
   deleteDoc,
   doc,
+  enableIndexedDbPersistence, 
 } from "https://www.gstatic.com/firebasejs/9.13.0/firebase-firestore.js";
   // TODO: Add SDKs for Firebase products that you want to use
   // https://firebase.google.com/docs/web/setup#available-libraries
@@ -33,6 +34,19 @@ import{
     const recipeList = recipeSnapshot.docs.map((doc)=> doc);
     return recipeList;
   }
+  enableIndexedDbPersistence(db).catch((err) => {
+    if (err.code == 'failed-precondition') {
+        // Multiple tabs open, persistence can only be enabled
+        // in one tab at a a time.
+        // ...
+        console.log("Persistence failed.")
+    } else if (err.code == 'unimplemented') {
+        // The current browser does not support all of the
+        // features required to enable persistence
+        // ...
+        console.log("Persistence is not valid.")
+    }
+});
 
   const unsub =onSnapshot(collection(db,"recipes"), (doc) => {
     //console.log(doc.docChanges());
