@@ -1,7 +1,7 @@
 
 //Assignment of staticCache and dynamic Cache. 
 const staticCache = "Static-cache-v9";
-const dynamicCache = "Dynamic-cache-v10";
+const dynamicCache = "Dynamic-cache-v11";
 
 //Assignment of asset variables. These Will be added to the static cache. These are the static files. 
 const assets = [
@@ -76,7 +76,7 @@ self.addEventListener("fetch", function (event) {
               cache.put(event.request.url, fetchRes.clone());
               //Restricts dynamicCache, deletes old caches that exceeds the limit. 
               //Due to the large amount of recipe pages, I opted to increase the limit from 3 to 8. 
-              limitCacheSize(dynamicCache, 3);
+              limitCacheSize(dynamicCache, 15);
               return fetchRes;
             });
           })
